@@ -41,7 +41,7 @@ export const authorModel = {
 
     async update(id, name){
         return new Promise((resolve, reject) => {
-            db.query(`UPDATE author SET name="${name}" WHERE id=${id}`, (error, result) => {
+            db.query(`UPDATE author SET name="${name}",update_at=NOW() WHERE id=${id}`, (error, result) => {
                 if(error){
                     reject(error);
                 } else {
