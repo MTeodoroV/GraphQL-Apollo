@@ -5,10 +5,14 @@ export const mutationType = gql`
         addGenre(name: String): Genre
         updateGenre(
             id: ID!
-            name: String
-            ):Genre
-        deleteGenre(
+            name: String):Genre
+        deleteGenre(id: ID!):Boolean
+        addAuthor(name: String): Author
+        updateAuthor(
             id: ID!
-        ):Boolean
+            name: String
+            update_at: String
+        ): Author
+        deleteAuthor(id:ID!):Boolean
     }
 `
