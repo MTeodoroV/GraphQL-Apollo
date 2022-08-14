@@ -16,7 +16,6 @@ export const genreResolver = {
             try {
                 genreModel.add(args.name);
             } catch(error) {
-                console.log(error);
                 return false;
             }
 
@@ -28,7 +27,6 @@ export const genreResolver = {
                 try {
                     const response = await genreModel.update(args.id, args.name? args.name : args.name);
                 } catch(error) {
-                    console.log(error);
                     return false;
                 }
                 return args;
@@ -40,7 +38,6 @@ export const genreResolver = {
                 try {
                     const response  = await genreModel.delete(args.id);
                 } catch(error) {
-                    console.log(error);
                     return false;
                 }
                 return true;
