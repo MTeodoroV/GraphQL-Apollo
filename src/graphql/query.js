@@ -6,5 +6,7 @@ export const queryType = gql `
         genres: [Genre]
         author(id: ID!): Author
         authors: [Author]
+        book(id: ID!): Book
+        books: [Book]
     }
 `;

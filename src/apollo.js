@@ -9,12 +9,14 @@ import { genreType } from "./graphql/genre/genreType.js";
 import { genreResolver } from "./graphql/genre/genreResolver.js";
 import { authorType } from "./graphql/author/authorType.js";
 import { authorResolver } from "./graphql/author/authorResolver.js";
+import { bookType } from "./graphql/book/bookType.js";
+import { bookResolver } from "./graphql/book/bookResolver.js";
 
 export const apolloServer = new ApolloServer({
     playground: true,
     introspection: true,
-    typeDefs: [queryType, mutationType, genreType, authorType],
-    resolvers:[genreResolver, authorResolver],
+    typeDefs: [queryType, mutationType, genreType, authorType, bookType],
+    resolvers:[genreResolver, authorResolver, bookResolver],
     plugins: [
     //   ApolloServerPluginDrainHttpServer({ httpServer }),
       ApolloServerPluginLandingPageLocalDefault({ embed: true }),
