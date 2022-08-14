@@ -8,5 +8,7 @@ export const queryType = gql `
         authors: [Author]
         book(id: ID!): Book
         books: [Book]
+        user(id: ID!): User
+        users: [User]
     }
 `;
