@@ -1,4 +1,5 @@
 import db from "../config/connection.js";
+import { hash } from "bcrypt";
 
 export const userModel = {
     all(){
@@ -27,10 +28,11 @@ export const userModel = {
         });
     },
 
-    add(name, email, password){
+    async add(name, email, password){
+        const hashedPassword = await hash(password, 12);
         return new Promise((resolve, reject) => {
             db.query(`INSERT INTO user(name, email, password) VALUES ("${name}", "${email}", 
-            "${password}")`, (error, result) => {
+            "${hashedPassword}")`, (error, result) => {
                 if(error){
                     reject(error);
                 } else {
@@ -64,5 +66,19 @@ export const userModel = {
                 }
             });
         });
-    }
+    },
+
+
+    findUserEmail(param, email) {
+        const query = `SELECT * FROM user WHERE ${param} = "${email}"`;
+        return new Promise((resolve, reject) => {
+            db.query(query, (error, result) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(result[0]);
+                }
+            });
+        });
+    },
 }

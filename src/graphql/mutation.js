@@ -56,5 +56,7 @@ export const mutationType = gql`
             status: Int
         ): ReadList
         deleteReadList(id: ID!): Boolean
+        login(email: String!, password: String!): LoginResponse
+        logout: Boolean
     }
 `
