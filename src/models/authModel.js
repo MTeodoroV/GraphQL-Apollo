@@ -26,7 +26,9 @@ export const authModel = {
     },
 
     logout(context) {
+        console.log(context.res)
         sendRefreshToken(context.res, "");
+        console.log(context.res)
         return true;
     },
 };
