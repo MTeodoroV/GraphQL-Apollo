@@ -13,12 +13,14 @@ import { bookType } from "./graphql/book/bookType.js";
 import { bookResolver } from "./graphql/book/bookResolver.js";
 import { userType } from "./graphql/user/userType.js";
 import { userResolver } from "./graphql/user/userResolver.js";
+import { readListType } from "./graphql/readList/readListType.js";
+import { readListResolver } from "./graphql/readList/readListResolver.js";
 
 export const apolloServer = new ApolloServer({
     playground: true,
     introspection: true,
-    typeDefs: [queryType, mutationType, genreType, authorType, bookType, userType],
-    resolvers:[genreResolver, authorResolver, bookResolver, userResolver],
+    typeDefs: [queryType, mutationType, genreType, authorType, bookType, userType, readListType],
+    resolvers:[genreResolver, authorResolver, bookResolver, userResolver, readListResolver],
     plugins: [
     //   ApolloServerPluginDrainHttpServer({ httpServer }),
       ApolloServerPluginLandingPageLocalDefault({ embed: true }),
