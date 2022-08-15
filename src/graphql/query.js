@@ -10,5 +10,7 @@ export const queryType = gql `
         books: [Book]
         user(id: ID!): User
         users: [User]
+        readList(id: ID!): ReadList
+        readLists: [ReadList]
     }
 `;

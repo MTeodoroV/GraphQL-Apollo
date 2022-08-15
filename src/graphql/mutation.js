@@ -44,5 +44,17 @@ export const mutationType = gql`
             password: String
         ): User
         deleteUser(id: ID!): Boolean
+        addReadList(
+            book_id: ID
+            user_id: ID
+            status: Int
+        ): ReadList
+        updateReadList(
+            id: ID!
+            book_id: ID
+            user_id: ID
+            status: Int
+        ): ReadList
+        deleteReadList(id: ID!): Boolean
     }
 `
